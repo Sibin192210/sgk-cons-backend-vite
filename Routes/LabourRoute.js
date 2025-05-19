@@ -3,16 +3,18 @@ import {
   createLabour,
   getAllLabours,
   getLaboursByProject,
+  getLaboursByQuotation,  // ✅ Add this import
   updateLabour,
   deleteLabour,
 } from "../Controllers/LabourController.js";
 
 const router = express.Router();
 
-router.post("/create", createLabour);                // Create labour
-router.get("/all", getAllLabours);                   // Get all labours
-router.get("/project/:projectId", getLaboursByProject); // ✅ New route to fix 404
-router.put("/update/:id", updateLabour);             // Update labour
-router.delete("/delete/:id", deleteLabour);          // Delete labour
+router.post("/create", createLabour);                
+router.get("/all", getAllLabours);                   
+router.get("/project/:projectId", getLaboursByProject); 
+router.get("/quotation/:quotationId", getLaboursByQuotation);  // ✅ New route
+router.put("/update/:id", updateLabour);             
+router.delete("/delete/:id", deleteLabour);          
 
 export default router;

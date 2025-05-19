@@ -13,6 +13,7 @@ import msheetRouter from "./routes/MsheetRoute.js";
 import materialRouter from "./routes/MaterialRoute.js";
 import labourRouter from "./Routes/LabourRoute.js";           // Labour work routes
 import labourProfileRouter from "./routes/LabourProfileRoute.js"; // Labour profile routes
+import labourSalaryRoutes from "./Routes/LabourSalaryRoute.js"
 
 import logger from "./Middleware/logger.js";
 import errorHandler from "./Middleware/errorHandler.js";
@@ -30,6 +31,7 @@ app.use(logger);
 app.use("/uploads/labour", express.static(path.join(path.resolve(), "uploads/labour")));
 
 // All routes
+
 app.use("/api/project", projectRouter);
 app.use("/api/quotation", quotationRouter);
 app.use("/api/role", roleRouter);
@@ -38,6 +40,8 @@ app.use("/api/msheet", msheetRouter);
 app.use("/api/material", materialRouter);
 app.use("/api/labourwork",labourRouter );   
 app.use("/api/labourprofile", labourProfileRouter);
+app.use("/api/labour-salaries", labourSalaryRoutes);
+
 // Handle 404 errors for unknown routes
 app.use((req, res) => {
   res.status(404).json({ success: false, message: "Route not found" });

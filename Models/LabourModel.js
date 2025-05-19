@@ -4,14 +4,14 @@ const labourSchema = new mongoose.Schema({
   projectId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "ProjectDetails",
+  },
+  quotationId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "QuotationItem",
     required: true,
   },
-//   quotationId: {
-//     type: mongoose.Schema.Types.ObjectId,
-//     ref: "QuotationItem",
-//     required: true,
-//   },
   name: String,
+  phone:String,
   task: String,
   hours: Number,
   idProof: String,
